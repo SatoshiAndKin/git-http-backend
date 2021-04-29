@@ -1,0 +1,16 @@
+version: "3.7"
+
+#volumes:
+#  caddy_data:
+#  caddy_config:
+
+services:
+  nginx:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - $HOME/git/repos:/git
+      - $HOME/git/htaccess:/etc/nginx/htaccess
+
